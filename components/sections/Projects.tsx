@@ -145,9 +145,12 @@ export function Projects() {
 
             <div className="flex gap-3 pt-2">
               {active.liveLink && (
-                <Button onClick={() => window.open(active.liveLink!, "_blank")}>
-                  <ExternalLink size={16} /> Live site
-                </Button>
+                <a href={active.liveLink} target="_blank" rel="noopener noreferrer">
+                  <Button>
+                    <ExternalLink size={16} />
+                    Live Site
+                  </Button>
+                </a>
               )}
               {active.githubLink && (
                 <Button variant="ghost" onClick={() => window.open(active.githubLink!, "_blank")}>
