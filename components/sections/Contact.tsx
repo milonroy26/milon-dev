@@ -8,8 +8,7 @@ import { FormEvent, useState } from "react";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
-const inputClass =
-  "w-full rounded-md border border-border-light dark:border-border-dark bg-transparent px-4 py-2.5 text-sm outline-none focus:border-primary transition-colors";
+const inputClass = "w-full rounded-md border border-border-light dark:border-border-dark bg-transparent px-4 py-2.5 text-sm outline-none focus:border-primary transition-colors";
 
 export function Contact() {
   const [status, setStatus] = useState<Status>("idle");
@@ -30,9 +29,12 @@ export function Contact() {
       });
       setStatus("sent");
       e.currentTarget.reset();
+      if (typeof window !== "undefined") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
     } catch {
       setStatus("error");
-      setErrorMsg("Couldn't send your message. Please try again or email me directly.");
+      setErrorMsg("");
     }
   };
 
