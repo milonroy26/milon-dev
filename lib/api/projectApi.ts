@@ -1,5 +1,5 @@
 import { api } from "@/lib/axios";
-import type { Project, ApiResponse } from "@/types";
+import type { ApiResponse, Project } from "@/types";
 
 export const projectApi = {
   list: () => api.get<ApiResponse<Project[]>>("/projects").then((r) => r.data.data),

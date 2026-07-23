@@ -57,7 +57,7 @@ export function Projects() {
       .then((data) => data.length > 0 && setProjects(data))
       .catch(() => {
         /* keep fallback data */
-
+        setProjects(FALLBACK);
       });
   }, []);
 
